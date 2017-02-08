@@ -1,0 +1,3 @@
+/*
+File containing the function prototypes.
+*/
