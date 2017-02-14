@@ -3,10 +3,13 @@
 CC     = g++
 CFLAGS = -Wall
 
-all: prototypes
+all : prototypes arg_parser
 
-prototypes: prototypes.o
+prototypes : prototypes.o
 	${CC} ${CFLAGS} -o prototypes.o prototypes.cpp
 
-clean:
-	rm -rf prototypes.o
+arg_parser : argument_parse.o
+	${CC} ${CFLAGS} -o argument_parse.o argument_parse.cpp
+
+clean :
+	rm -rf *.o

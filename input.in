@@ -1,0 +1,9 @@
+/*
+ * Test input file for the argument parser.
+ *
+ */
+
+infile = foo/bar.dat
+outfile = foo/bar.out
+
+
