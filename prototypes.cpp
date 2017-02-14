@@ -1,10 +1,12 @@
 /**
+ *
+ * File containing the function prototypes.
+ *
+*/
 
-File containing the function prototypes.
-
-**/
 #include <string>
 #include <iostream>
+
 struct measurement {
     float time;
     float lat;
