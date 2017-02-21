@@ -5,7 +5,7 @@
 #
 
 CPP      = g++
-CPPFLAGS = -Wall -std=c++11
+CPPFLAGS = -Wall -std=c++0x
 
 all : prototypes arg_parser
 

@@ -17,17 +17,19 @@ void remove_spaces(string & s);
 string grab_value(const string &s);
 
 int main() {
+
     //Initialize variables.
-    string line;
+    ifstream    inFile;
+    ofstream    logFile;
+    string      infile;
+    string      outfile;
+    string      line;
     set<string> valid_vars{"infile", "outfile"};
     set<string> inVars;
-    ifstream inFile;
-    ofstream logFile;
-    string infile;
-    string outfile;
+    
     //Define variables.
-    inFile.open ("input.in");
-    logFile.open ("argument_parse.log");
+    inFile.open   ("input.in");
+    logFile.open  ("argument_parse.log");
 
     //Parse inputfile for variables to define.
     while(getline(inFile, line)) {
@@ -52,20 +54,25 @@ int main() {
     logFile << "outfile = " << outfile << endl;
     logFile << "infile = " << infile << endl;
     logFile.close();
+    
+    return 0;
 }
 
 void remove_spaces(string & s) {
+
     int space_pos;
+
     space_pos=s.find(' ');
-    if ( space_pos == -1)
+    if ( space_pos == -1 )
         return;
     s.erase(space_pos,1);
+
     remove_spaces(s);
 }
 
 string grab_value(const string &s) {
-    int equal_pos = s.find('=');
-    string tmpVal = s.substr(equal_pos+1,s.size()-1);
+    int     equal_pos = s.find('=');
+    string  tmpVal = s.substr(equal_pos+1,s.size()-1);
     remove_spaces(tmpVal);
     cout << tmpVal << endl;
     return tmpVal;
