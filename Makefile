@@ -1,15 +1,19 @@
-#Makefile for GPS_R project for use on linux.
+# Makefile for GPS_R project for use on linux.
+#
+# Have to use CXX for c++ compiling, CC is made 
+# for compiling C
+#
 
-CC     = g++
-CFLAGS = -Wall
+CPP      = g++
+CPPFLAGS = -Wall -std=c++11
 
 all : prototypes arg_parser
 
 prototypes : prototypes.o
-	${CC} ${CFLAGS} -o prototypes.o prototypes.cpp
+	${CPP} ${CPPFLAGS} -o prototypes.o prototypes.cpp
 
 arg_parser : argument_parse.o
-	${CC} ${CFLAGS} -o argument_parse.o argument_parse.cpp
+	${CPP} ${CPPFLAGS} -o argument_parse.o argument_parse.cpp
 
 clean :
 	rm -rf *.o
