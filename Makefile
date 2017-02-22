@@ -1,6 +1,6 @@
 # Makefile for GPS_R project for use on linux.
 #
-# Have to use CXX for c++ compiling, CC is made 
+# Have to use CXX for c++ compiling, CC is made
 # for compiling C
 #
 
@@ -17,3 +17,6 @@ arg_parser : argument_parse.o
 
 clean :
 	rm -rf *.o
+
+cleanall :
+	rm -rf prototypes argument_parse *.o
