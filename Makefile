@@ -7,16 +7,19 @@
 CPP      = g++
 CPPFLAGS = -Wall -std=c++0x
 
-all : prototypes arg_parser
+all : prototypes arg_parser main
 
-prototypes : prototypes.o
-	${CPP} ${CPPFLAGS} -o prototypes.o prototypes.cpp
+prototypes : prototypes.cpp
+	${CPP} ${CPPFLAGS} -c prototypes.cpp
 
-arg_parser : argument_parse.o
-	${CPP} ${CPPFLAGS} -o argument_parse.o argument_parse.cpp
+arg_parser : argument_parse.cpp
+	${CPP} ${CPPFLAGS} -c argument_parse.cpp
+
+main : prototypes.o argument_parse.o
+	${CPP} ${CPPFLAGS} -o GPS_R prototypes.o argument_parse.o main.cpp
 
 clean :
-	rm -rf *.o
+	rm -f *.o
 
 cleanall :
-	rm -rf prototypes argument_parse *.o
+	rm -f GPS_R *.o

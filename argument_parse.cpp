@@ -4,31 +4,26 @@
  * inputs.
  *
  */
+ 
+#include "argument_parse.h"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <set>
 
-using namespace std;
+int argument_parse( int argc, char *argv[] ) {
 
-void remove_spaces(string & s);
-
-string grab_value(const string &s);
-
-int main() {
+    //Argument checking function with some sort of help dialog.
+    
 
     //Initialize variables.
-    ifstream    inFile;
-    ofstream    logFile;
-    string      infile;
-    string      outfile;
-    string      line;
-    set<string> valid_vars{"infile", "outfile"};
-    set<string> inVars;
+    ifstream      inFile;
+    ofstream      logFile;
+    string        infile;
+    string        outfile;
+    string        line;
+    set<string>   valid_vars{"infile", "outfile"};
+    set<string>   inVars;
     
     //Define variables.
-    inFile.open   ("input.in");
+    inFile.open   (argv[1]);
     logFile.open  ("argument_parse.log");
 
     //Parse inputfile for variables to define.
@@ -49,8 +44,10 @@ int main() {
         else if ( (*iter).find("outfile") != string::npos )
             outfile = grab_value(*iter);
     }
-
-    //Write what was done in logfile.
+    //Make the printing into a function.
+    cout << "outfile = " << outfile << endl;
+    cout << "infile = " << infile << endl;
+    //Write what was done in logfile - need to include a header for the logfile.
     logFile << "outfile = " << outfile << endl;
     logFile << "infile = " << infile << endl;
     logFile.close();
@@ -58,7 +55,7 @@ int main() {
     return 0;
 }
 
-void remove_spaces(string & s) {
+void remove_spaces ( string & s ) {
 
     int space_pos;
 
@@ -70,10 +67,12 @@ void remove_spaces(string & s) {
     remove_spaces(s);
 }
 
-string grab_value(const string &s) {
+string grab_value ( const string &s ) {
+    
     int     equal_pos = s.find('=');
+    
     string  tmpVal = s.substr(equal_pos+1,s.size()-1);
     remove_spaces(tmpVal);
-    cout << tmpVal << endl;
+    
     return tmpVal;
 }
