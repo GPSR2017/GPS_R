@@ -7,11 +7,13 @@
  
 #include "argument_parse.h"
 
+int check_args( int &argc, char *argv[] );
+
+ofstream setup_log( int &check_return, char *argv[]);
+
+void arg_parse_help( int &check_return);
 
 int argument_parse( int argc, char *argv[] ) {
-
-    //Argument checking function with some sort of help dialog.
-    
 
     //Initialize variables.
     ifstream      inFile;
@@ -21,10 +23,11 @@ int argument_parse( int argc, char *argv[] ) {
     string        line;
     set<string>   valid_vars{"infile", "outfile"};
     set<string>   inVars;
-    
+    int           arg_check;
+    arg_check = check_args( argc, argv );
     //Define variables.
     inFile.open   (argv[1]);
-    logFile.open  ("argument_parse.log");
+    logFile = setup_log( arg_check, argv );
 
     //Parse inputfile for variables to define.
     while(getline(inFile, line)) {
@@ -55,6 +58,25 @@ int argument_parse( int argc, char *argv[] ) {
     return 0;
 }
 
+int check_args( int &argc, char *argv[] ) {
+    for ( int i(0); i < argc ; ++i ) {
+        cout << argv[i] << endl;
+    }
+    if ( argc < 2 ) return 1;
+    if ( argc == 2 ) return 2;
+    if ( argc == 3 ) return 3;
+    return 0;
+}
+
+ofstream setup_log( int &check_return, char *argv[]) {
+    if ( check_return == 2 ) {
+        cout << "No log file specified, using default GPS_R.log" << endl;
+        ofstream logFile;
+        logFile.open("GPS_R.log");
+        return logFile;
+    }
+}
+
 void remove_spaces ( string & s ) {
 
     int space_pos;
@@ -71,8 +93,10 @@ string grab_value ( const string &s ) {
     
     int     equal_pos = s.find('=');
     
-    string  tmpVal = s.substr(equal_pos+1,s.size()-1);
+    string  tmpVal(s.substr(equal_pos+1,s.size()-1));
     remove_spaces(tmpVal);
     
     return tmpVal;
 }
+
+
