@@ -4,22 +4,27 @@
 # for compiling C
 #
 
-CPP      = g++
-CPPFLAGS = -Wall -std=c++0x
+program_NAME := GPS_R
+program_CXX_SRCS := $(wildcard *.cpp)
+program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
+program_OBJS := $(program_CXX_OBJS)
 
-all : prototypes arg_parser main
+CXXFLAGS += -Wall -std=c++0x
 
-prototypes : prototypes.cpp
-	${CPP} ${CPPFLAGS} -c prototypes.cpp
+.PHONY: all clean cleanall
 
-arg_parser : argument_parse.cpp
-	${CPP} ${CPPFLAGS} -c argument_parse.cpp
+all : $(program_NAME)
 
-main : prototypes.o argument_parse.o
-	${CPP} ${CPPFLAGS} -o GPS_R prototypes.o argument_parse.o main.cpp
+$(program_OBJS): $(program_CXX_SRCS)
+	$(COMPILE.cc) $(program_CXX_SRCS)
+
+$(program_NAME): $(program_OBJS)
+	$(LINK.cc) $(program_OBJS) -o $(program_NAME)
 
 clean :
-	rm -f *.o
+	@- $(RM) $(program_OBJS)
 
 cleanall :
-	rm -f GPS_R *.o
+	@- $(RM) $(program_OBJS)
+	@- $(RM) $(program_NAME)
+
