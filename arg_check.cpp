@@ -13,6 +13,7 @@ int arg_check( const std::vector<string> &inputArgs ) {
              << "\nNo log file specified, using "
                 "default GPS_R.log\n";
         
+        
         string logfile("GPS_R.log");
         argument_parse( inputArgs[0], logfile); 
         

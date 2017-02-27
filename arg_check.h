@@ -10,4 +10,6 @@ using namespace std;
 
 int arg_check( const std::vector<string> &inputArgs );
 
+void setup_log(ofstream &logFile);
+
 #endif
