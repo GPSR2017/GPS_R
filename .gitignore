@@ -28,5 +28,6 @@
 *.out
 *.app
 
-# Others (eg. log files)
+# Others (eg. log files & executables)
 *.log
+GPS_R
