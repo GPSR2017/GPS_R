@@ -7,27 +7,19 @@
  
 #include "argument_parse.h"
 
-int check_args( int &argc, char *argv[] );
 
-ofstream setup_log( int &check_return, char *argv[]);
-
-void arg_parse_help( int &check_return);
-
-int argument_parse( int argc, char *argv[] ) {
+int argument_parse( string input_file, string log_file ) {
 
     //Initialize variables.
     ifstream      inFile;
-    ofstream      logFile;
     string        infile;
     string        outfile;
     string        line;
     set<string>   valid_vars{"infile", "outfile"};
     set<string>   inVars;
-    int           arg_check;
-    arg_check = check_args( argc, argv );
+
     //Define variables.
-    inFile.open   (argv[1]);
-    logFile = setup_log( arg_check, argv );
+    inFile.open   (input_file.c_str());
 
     //Parse inputfile for variables to define.
     while(getline(inFile, line)) {
@@ -38,7 +30,7 @@ int argument_parse( int argc, char *argv[] ) {
     }
     inFile.close();
 
-    //Remove bad input variables.
+    //Remove bad input variables like stuff in comments.
 
     //Check if the variable is in the list of variables & assign them.
     for (auto iter = inVars.begin(); iter != inVars.end(); ++iter) {
@@ -48,33 +40,11 @@ int argument_parse( int argc, char *argv[] ) {
             outfile = grab_value(*iter);
     }
     //Make the printing into a function.
-    cout << "outfile = " << outfile << endl;
     cout << "infile = " << infile << endl;
     //Write what was done in logfile - need to include a header for the logfile.
-    logFile << "outfile = " << outfile << endl;
-    logFile << "infile = " << infile << endl;
-    logFile.close();
+    cout << "outfile = " << outfile << endl;
     
     return 0;
-}
-
-int check_args( int &argc, char *argv[] ) {
-    for ( int i(0); i < argc ; ++i ) {
-        cout << argv[i] << endl;
-    }
-    if ( argc < 2 ) return 1;
-    if ( argc == 2 ) return 2;
-    if ( argc == 3 ) return 3;
-    return 0;
-}
-
-ofstream setup_log( int &check_return, char *argv[]) {
-    if ( check_return == 2 ) {
-        cout << "No log file specified, using default GPS_R.log" << endl;
-        ofstream logFile;
-        logFile.open("GPS_R.log");
-        return logFile;
-    }
 }
 
 void remove_spaces ( string & s ) {

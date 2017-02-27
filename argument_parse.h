@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int argument_parse( int argc, char *argv[] );
+int argument_parse( string input_file, string log_file );
 
 void remove_spaces ( string & s );
 

@@ -3,5 +3,8 @@
 
 #include "argument_parse.h"
 #include "prototypes.h"
+#include "arg_check.h"
+#include <vector>
+#include <string>
 
 #endif
