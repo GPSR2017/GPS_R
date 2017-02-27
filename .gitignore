@@ -31,3 +31,5 @@
 # Others (eg. log files & executables)
 *.log
 GPS_R
+*.avi
+*.xlsx
