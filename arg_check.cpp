@@ -1,4 +1,4 @@
-#include "arg_check.h"
+#include "inputs.h"
 
 int arg_check( const std::vector<string> &inputArgs ) {
     cout <<"Checking arguments...\n";
@@ -14,9 +14,11 @@ int arg_check( const std::vector<string> &inputArgs ) {
                 "default GPS_R.log\n";
         
         
-        string logfile("GPS_R.log");
-        argument_parse( inputArgs[0], logfile); 
-        
+        ofstream logFile;
+        string log_name("GPS_R.log");
+        logFile.open(log_name);
+        setup_log(logFile);
+        argument_parse( inputArgs[0], logFile);
     }
     
     return 0;

@@ -5,10 +5,10 @@
  *
  */
  
-#include "argument_parse.h"
+#include "inputs.h"
 
 
-int argument_parse( string input_file, string log_file ) {
+int argument_parse( string input_file, ofstream &logFile ) {
 
     //Initialize variables.
     ifstream      inFile;
@@ -41,8 +41,11 @@ int argument_parse( string input_file, string log_file ) {
     }
     //Make the printing into a function.
     cout << "infile = " << infile << endl;
-    //Write what was done in logfile - need to include a header for the logfile.
     cout << "outfile = " << outfile << endl;
+    append2log(logFile, "Input Parameters");
+    append2log(logFile, "infile = " + infile);
+    append2log(logFile, "outfile = " + outfile);
+    
     
     return 0;
 }
