@@ -34,8 +34,8 @@ GPS_R
 *.avi
 *.xlsx
 .jpg
-bin/*
-ffmpeg_build/*
-ffmpeg_source/*
-opencv_build/*
-opencv_test/*
+bin/
+ffmpeg_build/
+ffmpeg_source/
+opencv_build/
+opencv_test/
