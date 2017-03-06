@@ -36,6 +36,6 @@ GPS_R
 .jpg
 bin/
 ffmpeg_build/
-ffmpeg_source/
+ffmpeg_sources/
 opencv_build/
 opencv_test/
