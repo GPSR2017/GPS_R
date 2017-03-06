@@ -12,7 +12,7 @@ program_OBJS := $(program_CXX_OBJS)
 CXXFLAGS += -Wall -std=c++0x
 
 #phony means that these aren't actually files.
-.PHONY: all clean cleanall distclean
+.PHONY: all clean cleanall distclean ffmpeg opencv
 
 all : $(program_NAME)
 
@@ -25,8 +25,11 @@ $(program_OBJS): $(program_CXX_SRCS)
 $(program_NAME): $(program_OBJS)
 	$(LINK.cc) $(program_OBJS) -o $(program_NAME)
 
-./bin/ffmpeg: 
+ffmpeg: 
 	bash make_ffmpeg.sh
+
+opencv:
+	bash make_opencv.sh
 
 #The @ means don't announce the command, - means don't display errors
 clean :
@@ -49,3 +52,4 @@ distclean :
 	@- $(RM) -r ffmpeg_sources
 	@- $(RM) -r yasm-1.3.0
 	@- $(RM) -r bin
+	@- $(RM) -r opencv_build
