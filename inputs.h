@@ -12,6 +12,8 @@ using namespace std;
 
 int arg_check( const std::vector<string> &inputArgs );
 
+void help_text();
+
 void setup_log(ofstream &logFile);
 
 int argument_parse( string input_file, ofstream &logFile );

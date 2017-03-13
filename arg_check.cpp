@@ -4,8 +4,8 @@ int arg_check( const std::vector<string> &inputArgs ) {
     cout <<"Checking arguments...\n";
     
     if ( inputArgs.empty() ) {
-        cout << "\nNo input arguments, exiting\n\n"
-                "Usage: GPS_R <input_parameters_file> [logfile]\n\n";
+        cout << "\nNo input arguments, exiting\n\n";
+        help_text();
     }
     
     if ( inputArgs.size() == 1 ) {
@@ -31,9 +31,13 @@ int arg_check( const std::vector<string> &inputArgs ) {
     }
     
     if ( inputArgs.size() > 2 ) {
-        cout << "Too many arguments\n"
-                "Usage: GPS_R <input_parameters_file> [logfile]\n\n";
+        cout << "Too many arguments\n";
+        help_text();
         return 1;
     }
     return 0;
+}
+
+void help_text() {
+    cout<<"\n\nUsage: GPS_R <input_parameters_file> [logfile]\n\n";
 }
