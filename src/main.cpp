@@ -14,7 +14,7 @@ int main ( int argc, char* argv[] ) {
         cout << "Exiting program\n";
         return 1;
     }
-    
+    video2GPS(10);
     prototypes();
     return 0;
 }

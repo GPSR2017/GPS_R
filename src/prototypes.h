@@ -11,22 +11,15 @@ struct measurement {
     float GPR_depth;
 };
 
-struct videoFrame {
-    float time;
-    float lat;
-    float lon;
-};
-
 struct GPREntry {
     float time;
     float depth;
 };
 
-videoFrame video2GPS (int frame_number);
 
 float* inputVideo (std::string videoFilename);
 
-measurement correlateTimes (videoFrame vid_frame, GPREntry GPR_data);
+//measurement correlateTimes (videoFrame vid_frame, GPREntry GPR_data);
 
 /// A function that will read and convert the time from the .csv GPR data file
 measurement readGPRTime (float GPRTime );
