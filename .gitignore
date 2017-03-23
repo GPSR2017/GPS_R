@@ -39,3 +39,6 @@ ffmpeg_build/
 ffmpeg_sources/
 opencv_build/
 opencv_test/
+.DS_Store
+html/
+latex/
