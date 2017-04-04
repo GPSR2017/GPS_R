@@ -48,6 +48,7 @@ cleanall :
 	@- $(RM) -r ffmpeg_build
 	@- $(RM) -r ffmpeg_sources
 	@- $(RM) -r yasm-1.3.0
+	@- $(RM) -r html
 	@- $(MAKE) cleanall -C src
 	@- $(MAKE) cleanall -C src/video_proc
 	@- $(MAKE) cleanall -C src/excel_reader
