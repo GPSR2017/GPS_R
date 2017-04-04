@@ -5,7 +5,7 @@
  *
  */
  
-#include "inputs.h"
+#include "inputProcesses.h"
 
 
 int argument_parse( string input_file, ofstream &logFile ) {
@@ -19,7 +19,7 @@ int argument_parse( string input_file, ofstream &logFile ) {
     set<string>   inVars;
 
     //Define variables.
-    inFile.open   (input_file.c_str());
+    inFile.open(input_file.c_str());
 
     //Parse inputfile for variables to define.
     while(getline(inFile, line)) {
@@ -72,4 +72,61 @@ string grab_value ( const string &s ) {
     return tmpVal;
 }
 
+int arg_check( const std::vector<string> &inputArgs ) {
 
+    cout <<"Checking arguments...\n";
+
+    //Sanity check
+    if ( (inputArgs.empty()) || (inputArgs.size() > 2) ) {
+
+        cout << "\nError with inputs, exiting\n\n";
+
+        help_text();
+        return 1;
+    }
+
+    ofstream logFile;
+
+    if ( inputArgs.size() == 1 ) {
+
+        string log_name("GPS_R.log");
+
+        cout << "Reading in " << log_name
+             << "\nNo log file specified, using "
+                "default GPS_R.log\n";
+    }
+
+    if ( inputArgs.size() == 2 ) {
+
+        string log_name(inputArgs[1]);
+
+        cout << "Reading in " << log_name
+             << "\nUsing log file: "
+             << log_name << endl;
+    }
+
+    logFile.open(log_name);
+    setup_log(logFile);
+    argument_parse( inputArgs[0], logFile);
+
+    return 0;
+}
+
+void help_text() {
+    cout<<"\n\nUsage: GPS_R <input_parameters_file> [logfile]\n\n";
+}
+
+void setup_log(ofstream &logFile) {
+    log_header(logFile);
+}
+
+void log_header(ofstream &logFile) {
+    logFile << setw(30) << setfill('*') << '\n'
+            << setfill(' ')
+            << "\nGPS_R Project Log\n\n"
+            << setw(30) << setfill('*') << "\n\n";
+}
+
+void append2log(ofstream &logFile, string s) {
+    logFile << s << endl;
+}

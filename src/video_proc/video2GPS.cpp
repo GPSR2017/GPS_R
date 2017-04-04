@@ -1,4 +1,4 @@
-#include "video.h"
+#include "video2GPS.h"
 
 using namespace std;
 
