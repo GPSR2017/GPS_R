@@ -3,7 +3,7 @@
 
 #include "inputProcesses.h"
 #include "prototypes.h"
-#include "video_proc/video.h"
+#include "video_proc/video2GPS.h"
 #include <vector>
 #include <string>
 
