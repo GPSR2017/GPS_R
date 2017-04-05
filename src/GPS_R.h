@@ -1,10 +1,10 @@
 #ifndef GPS_R_H
 #define GPS_R_H
 
-#include "inputs.h"
+#include "inputProcesses.h"
 #include "prototypes.h"
-#include "video_proc/video.h"
+#include "video_proc/video2GPS.h"
 #include <vector>
 #include <string>
 
-#endif
+#endif //GPS_R_H

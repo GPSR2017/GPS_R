@@ -7,6 +7,6 @@
 #include "prototypes.h"
 
 int prototypes() {
-    std::cout<<"The prototypes have compiled.\n";
+    std::cout << "The prototypes have compiled.\n";
     return 0;
 }
