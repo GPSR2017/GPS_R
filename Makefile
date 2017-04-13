@@ -26,7 +26,7 @@ $(program_OBJS): $(program_SRC)
 	$(MAKE) -C src/video_proc
 	$(MAKE) -C src/excel_reader
 
-ffmpeg: 
+ffmpeg:
 	bash make_ffmpeg.sh
 
 opencv:
@@ -38,6 +38,7 @@ clean :
 	@- $(RM) -r ffmpeg_build
 	@- $(RM) -r ffmpeg_sources
 	@- $(RM) -r yasm-1.3.0
+	@- $(RM) -r *~src\*~
 	@- $(MAKE) clean -C src
 	@- $(MAKE) clean -C src/video_proc
 	@- $(MAKE) clean -C src/excel_reader
@@ -49,10 +50,12 @@ cleanall :
 	@- $(RM) -r ffmpeg_sources
 	@- $(RM) -r yasm-1.3.0
 	@- $(RM) -r html
+	@- $(RM) -r *~src\*~
+	@- $(RM) -rf latex
 	@- $(MAKE) cleanall -C src
 	@- $(MAKE) cleanall -C src/video_proc
 	@- $(MAKE) cleanall -C src/excel_reader
-	
+
 distclean :
 	@- $(RM) $(program_OBJS)
 	@- $(RM) $(program_NAME)
