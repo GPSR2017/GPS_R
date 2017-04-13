@@ -1,0 +1,16 @@
+#This file sets up the formatting options for the source code.
+-A2
+-xc
+-xn
+-xl
+#-xV
+-F
+-p
+#-xg
+-P
+-H
+-W1
+-k1
+-j
+-xC78
+-R

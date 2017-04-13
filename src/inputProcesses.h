@@ -1,5 +1,5 @@
-#ifndef INPUTS_H
-#define INPUTS_H
+#ifndef INPUTPROCESSES_H
+#define INPUTPROCESSES_H
 
 #include <iostream>
 #include <fstream>
@@ -26,4 +26,4 @@ void log_header(ofstream &logFile);
 
 void append2log(ofstream &logFile, string s);
 
-#endif
+#endif // INPUTPROCESSES_H

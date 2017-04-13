@@ -1,5 +1,5 @@
 #ifndef VIDEO_H
-#define VIDEO
+#define VIDEO_H
 
 #include <string>
 #include <iostream>
@@ -16,4 +16,4 @@ class videoFrame {
 
 videoFrame video2GPS (int frame_number);
 
-#endif
+#endif // VIDEO_H
