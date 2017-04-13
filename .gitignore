@@ -22,3 +22,5 @@ html/
 latex/
 leptonica-1.74.1/
 src/video_proc/libs/
+.cproject
+.project
