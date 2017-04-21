@@ -15,13 +15,13 @@
 
 using namespace std;
 
-int arg_check( const std::vector<string> &inputArgs );
+vector<string> arg_check( const vector<string> &inputArgs );
 
 void help_text();
 
 void setup_log(ofstream &logFile);
 
-int argument_parse( string input_file, ofstream &logFile );
+vector<string> argument_parse( string input_file, ofstream &logFile );
 
 void remove_spaces ( string & s );
 

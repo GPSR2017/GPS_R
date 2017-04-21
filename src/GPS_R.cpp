@@ -3,7 +3,7 @@
  *  @author     Peter Matheny
  *  @author     Colton Baker
  *  @date       2017-
- *  @param[in]  parameters  Determines file locations
+ *  @param[in]  parameters  Determines IO locations
  *  @param[in]  logfile     (Optional) Logfile name.
  */
 
@@ -13,7 +13,7 @@
 int main ( int argc, char* argv[] ) {
 
     vector<string>  inputArgs;
-    int             check_args;
+    vector<string>  check_args;
 
     for ( int i = 1; i < argc; ++i ) {
         inputArgs.emplace_back ( argv[i] );
@@ -21,12 +21,12 @@ int main ( int argc, char* argv[] ) {
 
     check_args = arg_check ( inputArgs );
 
-    if ( check_args != 0 ) {
+    if ( check_args.size() == 0 ) {
         cout << "Exiting program\n";
-        return check_args;
+        return 1;
     }
-
-    video2GPS ( 10 );
-
+    
+    readOCR(check_args[0]);
+    
     return 0;
 }

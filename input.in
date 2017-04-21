@@ -1,9 +1,10 @@
 /*
- * Test input file for the argument parser.
- *
+ *  Test input file for the argument parser.
+ *  infile is the raw OCR data.
+ *  outfile is the combined GPS and GPR data.
  */
 
-infile = foo/bar.dat
-outfile = foo/bar.out
+infile = sample/ocrOut.dat
+outfile = sample/merged.dat
 
 
