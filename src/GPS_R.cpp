@@ -1,8 +1,10 @@
 /**
- *  \brief     Combines GPS and GPR data.
- *  \author    Peter Matheny
- *  \author    Colton Baker
- *  \date      2017-
+ *  @brief      Combines GPS and GPR data.
+ *  @author     Peter Matheny
+ *  @author     Colton Baker
+ *  @date       2017-
+ *  @param[in]  parameters  Determines file locations
+ *  @param[in]  logfile     (Optional) Logfile name.
  */
 
 #include <fstream>
@@ -25,7 +27,6 @@ int main ( int argc, char* argv[] ) {
     }
 
     video2GPS ( 10 );
-    prototypes();
 
     return 0;
 }

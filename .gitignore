@@ -21,6 +21,8 @@ opencv_test/
 html/
 latex/
 leptonica-1.74.1/
-src/video_proc/libs/
+src/video_proc/test/
 .cproject
 .project
+*.orig
+docs/

@@ -20,6 +20,8 @@ all : $(program_OBJS)
 $(program_OBJS): $(program_CXX_SRCS)
 	$(COMPILE.cc) $(program_CXX_SRCS)
 
+video: $(program_OBJS)
+	$(LINK.cc) $(program_OBJS) -o video
 #The @ means don't announce the command, - means don't display errors
 clean :
 	@- $(RM) $(program_OBJS)

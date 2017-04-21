@@ -1,3 +1,8 @@
+/**
+ *  @brief  Header file for the input processes.
+ *  @author Peter Matheny
+ */
+
 #ifndef INPUTPROCESSES_H
 #define INPUTPROCESSES_H
 
