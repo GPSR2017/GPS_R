@@ -1,6 +1,7 @@
 /**
- *@brief    Header file for the main program.
- *@author   Peter Matheny
+ *  @file       GPS_R.h
+ *  @brief      Header file for the main program.
+ *  @author     Peter Matheny
  *
  */
 

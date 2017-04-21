@@ -25,4 +25,4 @@ src/video_proc/test/
 .cproject
 .project
 *.orig
-
+docs/
