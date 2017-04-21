@@ -7,8 +7,11 @@
 
 #include "inputProcesses.h"
 
-
-int argument_parse ( string input_file, ofstream& logFile ) {
+/**
+ *  @brief  Finds valid input and makes it available
+ *          to the program.
+ */
+vector<string> argument_parse ( string input_file, ofstream& logFile ) {
 
     ifstream      inFile;
     string        infile;
@@ -16,6 +19,7 @@ int argument_parse ( string input_file, ofstream& logFile ) {
     string        line;
     set<string>   valid_vars{"infile", "outfile"};
     set<string>   inVars;
+    vector<string> output;
 
     inFile.open ( input_file.c_str() );
 
@@ -44,7 +48,9 @@ int argument_parse ( string input_file, ofstream& logFile ) {
     append2log ( logFile, "Input Parameters" );
     append2log ( logFile, "infile = " + infile );
     append2log ( logFile, "outfile = " + outfile );
-    return 0;
+    output.push_back(infile);
+    output.push_back(outfile);
+    return output;
 }
 
 /**
@@ -93,17 +99,17 @@ string grab_value ( const string& s ) {
  *  is not and will be set to a default value if not defined.
  */
 
-int arg_check ( const std::vector<string>& inputArgs ) {
+vector<string> arg_check ( const std::vector<string>& inputArgs ) {
 
     cout << "Checking arguments...\n";
-
+    vector<string> arguments{""};
     /** Sanity check */
     if ( ( inputArgs.empty() ) || ( inputArgs.size() > 2 ) ) {
 
         cout << "\nError with inputs, exiting\n\n";
 
         help_text();
-        return 1;
+        return arguments;
     }
 
     ofstream logFile;
@@ -129,9 +135,8 @@ int arg_check ( const std::vector<string>& inputArgs ) {
 
     logFile.open ( log_name );
     setup_log ( logFile );
-    argument_parse ( inputArgs[0], logFile );
-
-    return 0;
+    arguments = argument_parse ( inputArgs[0], logFile );
+    return arguments;
 }
 
 /**

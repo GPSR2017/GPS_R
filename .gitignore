@@ -26,3 +26,5 @@ src/video_proc/test/
 .project
 *.orig
 docs/
+*.opts
+format_code.sh
