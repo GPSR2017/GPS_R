@@ -28,3 +28,5 @@ src/video_proc/test/
 docs/
 *.opts
 format_code.sh
+src/excel_reader/*.dat
+src/excel_reader/*.txt
