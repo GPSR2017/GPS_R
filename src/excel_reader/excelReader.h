@@ -4,7 +4,7 @@
 */
 
 #ifndef EXCELREADER_H
-#define EXCELREADER_h
+#define EXCELREADER_H
 
 #include <iostream>
 #include <fstream>
@@ -38,3 +38,5 @@ class excelData {
 
 bool openFileIn ( fstream &, string )
 ;
+
+#endif //EXCELREADER_H

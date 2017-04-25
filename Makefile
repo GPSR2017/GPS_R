@@ -8,10 +8,10 @@ program_NAME := GPS_R
 CXXFLAGS += -Wall -std=c++0x
 io_OBJS := $(wildcard src/*.cpp)
 video_SRC := $(wildcard src/video_proc/*.cpp)
-excel_OBJS := $(wildcard src/excel_reader/*.cpp)
+#excel_OBJS := $(wildcard src/excel_reader/*.cpp)
 program_OBJS := $(io_OBJS:.cpp=.o)
 program_OBJS += $(video_SRC:.cpp=.o)
-program_OBJS += $(excel_OBJS:.cpp=.o)
+#program_OBJS += $(excel_OBJS:.cpp=.o)
 #phony means that these aren't actually files.
 .PHONY: all clean cleanall distclean
 
@@ -24,7 +24,7 @@ $(program_NAME): $(program_OBJS)
 $(program_OBJS): $(program_SRC)
 	$(MAKE) -C src
 	$(MAKE) -C src/video_proc
-	$(MAKE) -C src/excel_reader
+	#$(MAKE) -C src/excel_reader
 
 #The @ means don't announce the command, - means don't display errors
 clean :
